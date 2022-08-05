@@ -1,5 +1,10 @@
+*{
+  padding: 0;
+  margin: 0;
+}
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +15,89 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.brand{
+  color: aliceblue;
+}
+nav{
+  margin: 0;
+  padding: 10px 20px;
+  height: min-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: cadetblue;
+
+}
+.movie-card{
+  /* width: 200px; */
+  /* height: 100px; */
+  background-color: cadetblue;
+  text-align: center;
+  width: min-content;
+  height: 100%;
+  color: black;
+  position: relative;
+}
+.movie-card a{
+  color: black;
+}
+.movie-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:stretch;
+  justify-content: space-evenly;
+  gap: 50px;
+  padding-top: 20px;
+}
+
+.movie-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 30px;
+  /* gap: 30px; */
+  height: 80vh;
+}
+
+.movie-info{
+  width: 50%;
+}
+
+.movie-container ul{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.genre{
+  background-color: cadetblue;
+  color: aliceblue;
+  font-weight: bold;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+.fav-btn{
+  width: 30px;
+  height: 30px;
+  top: 0;
+  right: 0;
+  background-color: aliceblue;
+  position: absolute;
+  padding: 10px;
+  border-radius: 0 0 0 20px;
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.favourite-counter{
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
 }

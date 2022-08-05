@@ -1,57 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from './app/hooks';
+import { fetchMovies } from './features/movies/moviesSlice';
+import { MoviesList } from './features/movies/MoviesList';
+import { Outlet } from 'react-router-dom';
+import { fetchGenres } from './features/movies/moviesSlice';
+import { Link } from 'react-router-dom';
+
 
 function App() {
+  const dispatch = useAppDispatch();
+  const favourites = useAppSelector(state => state.movies.favouriteMovies);
+
+  useEffect(() => {
+    dispatch(fetchGenres())
+  }, [dispatch])
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <nav>
+        <div>
+          <Link to="/" style={{textDecoration: "none"}}>
+            <h1 className='brand'>Movies</h1>
+          </Link>
+        </div>
+        <div className="favourite-counter">
+          <p>Favourite: {favourites.length}</p>
+        </div>
+      </nav>
+      {/* <ol>
+        {movies.map(movie => <li key={movie.id}>{movie.original_title}</li>)}
+      </ol> */}
+      <Outlet />
+    </>
   );
 }
 
