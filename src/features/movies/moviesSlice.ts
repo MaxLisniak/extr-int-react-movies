@@ -29,13 +29,6 @@ export const fetchMovies = createAsyncThunk(
   }
 )
 
-export const fetchGenres = createAsyncThunk(
-  'movies/fetchGenres',
-  async () => {
-    const response = await configuredAxios.get("genre/movie/list")
-    return response.data.genres;
-  }
-)
 
 export const moviesSlice = createSlice({
   name: "movies",
@@ -64,10 +57,6 @@ export const moviesSlice = createSlice({
         state.list.push(...action.payload);
         state.page += 1
       });
-    builder
-      .addCase(fetchGenres.fulfilled, (state, action) => {
-        state.genres = action.payload;
-      })
   },
 })
 
