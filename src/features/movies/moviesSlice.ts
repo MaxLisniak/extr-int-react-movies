@@ -42,16 +42,15 @@ export const moviesSlice = createSlice({
   initialState,
   reducers: {
     movieAddedToFavourite(state, action) {
-      const { movieId } = action.payload
-      if (!state.favouriteMovies.find(movie => movie.id === movieId)) {
-        const movie = state.list.find(movie => movie.id === movieId)
-        state.favouriteMovies.push(movie);
+      const { movieToAdd } = action.payload
+      if (!state.favouriteMovies.find(movie => movie.id === movieToAdd.id)) {
+        state.favouriteMovies.push(movieToAdd);
       }
     },
     movieRemoveFromFavourite(state, action) {
-      const { movieId } = action.payload
-      if (state.favouriteMovies.find(movie => movie.id === movieId)) {
-        state.favouriteMovies = state.favouriteMovies.filter(movie => movie.id !== movieId);
+      const { movieToRemove } = action.payload
+      if (state.favouriteMovies.find(movie => movie.id === movieToRemove.id)) {
+        state.favouriteMovies = state.favouriteMovies.filter(movie => movie.id !== movieToRemove.id);
       }
     }
   },

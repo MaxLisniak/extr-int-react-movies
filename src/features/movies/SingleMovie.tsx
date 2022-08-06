@@ -1,16 +1,28 @@
-import { useAppSelector } from "../../app/hooks"
-import { selectMovieById } from "./moviesSlice";
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { favouriteById, movieAddedToFavourite, movieRemoveFromFavourite, selectMovieById } from "./moviesSlice";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import configuredAxios from "../../axios/axios";
 import "./SingleMovie.scss"
+import StarRemove from "./star-remove.svg";
+import StarAdd from "./star-add.svg";
 
 export const SingleMovie = () => {
 
   let { movieId } = useParams();
-  // const movie = useAppSelector<any>(state => selectMovieById(state, Number(movieId)))
   const [movie, setMovie] = useState<any>();
-  const genres = useAppSelector<any>(state => state.movies.genres)
+  const isFavourite = useAppSelector(state => favouriteById(state, Number(movieId)));
+
+  const dispatch = useAppDispatch()
+
+  const handleFavouriteClick = () => {
+    console.log(movie)
+    if (!isFavourite) {
+      dispatch(movieAddedToFavourite({ movieToAdd: movie }))
+    } else {
+      dispatch(movieRemoveFromFavourite({ movieToRemove: movie }))
+    }
+  }
 
   useEffect(() => {
     configuredAxios.get(`movie/${movieId}`)
@@ -70,7 +82,13 @@ export const SingleMovie = () => {
         </div>
       </div>
       <div className="right-column">
-        <h1 className="title">{movie.title}</h1>
+        <h1 className="title">{movie.title}
+          <img
+            className='fav-btn'
+            src={isFavourite ? StarRemove : StarAdd}
+            alt="Add to favourite"
+            onClick={handleFavouriteClick}
+          /></h1>
         {
           movie.title !== movie.original_title ?
             <h3>{movie.original_title}</h3> : null

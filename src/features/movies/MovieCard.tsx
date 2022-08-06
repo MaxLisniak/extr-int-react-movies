@@ -13,9 +13,9 @@ export const MovieCard = ({ movie }: any) => {
 
   const handleFavouriteClick = () => {
     if (!isFavourite) {
-      dispatch(movieAddedToFavourite({ movieId: movie.id }))
+      dispatch(movieAddedToFavourite({ movieToAdd: movie }))
     } else {
-      dispatch(movieRemoveFromFavourite({ movieId: movie.id }))
+      dispatch(movieRemoveFromFavourite({ movieToRemove: movie }))
     }
   }
 
