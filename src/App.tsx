@@ -1,19 +1,10 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './app/hooks';
-import { fetchMovies } from './features/movies/moviesSlice';
-import { MoviesList } from './features/movies/MoviesList';
+import { useAppSelector } from './app/hooks';
 import { Outlet } from 'react-router-dom';
-import { fetchGenres } from './features/movies/moviesSlice';
 import { Link } from 'react-router-dom';
 
 
 function App() {
-  const dispatch = useAppDispatch();
   const favourites = useAppSelector(state => state.movies.favouriteMovies);
-
-  useEffect(() => {
-    dispatch(fetchGenres())
-  }, [dispatch])
  
   return (
     <>
@@ -27,9 +18,6 @@ function App() {
           <p>Favourite: {favourites.length}</p>
         </div>
       </nav>
-      {/* <ol>
-        {movies.map(movie => <li key={movie.id}>{movie.original_title}</li>)}
-      </ol> */}
       <Outlet />
     </>
   );
