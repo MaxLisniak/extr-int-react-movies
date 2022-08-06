@@ -16,6 +16,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .brand{
   color: aliceblue;
 }
@@ -27,7 +28,6 @@ nav{
   justify-content: space-between;
   align-items: center;
   background-color: cadetblue;
-
 }
 .movie-card{
   /* width: 200px; */
@@ -51,7 +51,6 @@ nav{
   gap: 50px;
   padding-top: 20px;
 }
-
 .movie-container{
   display: flex;
   flex-direction: row;
@@ -59,27 +58,105 @@ nav{
   justify-content: space-evenly;
   padding: 30px;
   /* gap: 30px; */
-  height: 80vh;
+  min-height: 80vh;
 }
-
+.img-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 280px;
+}
+.box-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.big-box{
+  text-align: center;
+  color: aliceblue;
+  padding: 10px;
+  font-weight: bold;
+}
+.mini-box{
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.tagline{ 
+  background-color: #0db39e;
+  color: black;
+}
+.release-date{
+  background-color: #16db93;
+  color: black;
+}
+.runtime{
+  background-color: #83e377;
+  color: black;
+}
+.budget{
+  background-color: #b9e769;
+  color: black;
+}
+/* .lang{
+  background-color: #efea5a;
+  color:black;
+} */
+.vote{
+  background-color: #efea5a;
+  color: black;
+}
+.IMDb{
+  background-color: #f1c453;
+  color: black;
+}
+.IMDb a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
 .movie-info{
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
 }
-
-.movie-container ul{
+.title{
+  font-size: 2.5em;
+}
+.overview{
+  font-size: 1.1em;
+}
+.read-more{
+  color:cadetblue;
+  font-weight: bold;
+}
+.horizontal-list{
   list-style: none;
   padding: 0;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.vertical-list{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
-.genre{
+.li{
   background-color: cadetblue;
   color: aliceblue;
   font-weight: bold;
   padding: 3px;
-  border-radius: 3px;
-  font-size: 0.8em;
+  font-size: 1em;
+  width: max-content;
 }
 
 .fav-btn{
