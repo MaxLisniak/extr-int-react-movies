@@ -1,21 +1,21 @@
 import StarAdd from './star-add.svg'
 import StarRemove from './star-remove.svg'
 import { Link } from 'react-router-dom'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useState } from 'react'
 import { movieAddedToFavourite, movieRemoveFromFavourite } from './moviesSlice'
+import { favouriteById } from './moviesSlice'
+
 
 export const MovieCard = ({ movie }:any) => {
   const dispatch = useAppDispatch();
-  const [isFavourite, setIsFavourite] = useState(false);
+  const isFavourite = useAppSelector(state => favouriteById(state, movie.id));
 
   const handleFavouriteClick = () => {
     if (!isFavourite){
       dispatch(movieAddedToFavourite({movieId: movie.id}))
-      setIsFavourite(true)
     } else {
       dispatch(movieRemoveFromFavourite({movieId: movie.id}))
-      setIsFavourite(false)
     }
   }
 

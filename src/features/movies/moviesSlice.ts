@@ -25,7 +25,6 @@ export const fetchMovies = createAsyncThunk(
     const response = await configuredAxios.get("discover/movie", {
     params: {page: page}
   })
-    console.log(response.data.results)
     return response.data.results
   }
 )
@@ -77,7 +76,14 @@ export default moviesSlice.reducer
 export const { movieAddedToFavourite, movieRemoveFromFavourite } = moviesSlice.actions;
 
 export const selectMovieById = (state:{ movies:MoviesState }, movieId:number) => {
-  return state.movies.list.find(movie => movie.id == movieId)
+  return state.movies.list.find(movie => movie.id === movieId)
+}
+
+export const favouriteById = (state:{ movies:MoviesState }, movieId: number) => {
+  const found = state.movies.favouriteMovies.find(movie => movie.id === movieId)
+  if (found)
+    return true
+  return false
 }
 
 export const selectPage = (state:any) => state.movies.page;
