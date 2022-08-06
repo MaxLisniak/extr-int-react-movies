@@ -29,11 +29,14 @@ export const MovieCard = ({ movie }:any) => {
       />
       <Link to={`/movie/${movie.id}`} style={{textDecoration: 'none'}}>
         <img src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="Movie Poster" />
-        <h2>{movie.title}</h2>
-        {
-          movie.title !== movie.original_title ?
-          <h3>{movie.original_title}</h3> : null
-        }
+        <div className="movie-card-titles">
+          <h2>{movie.title}</h2>
+          {
+            movie.title !== movie.original_title ?
+            <h3>{movie.original_title}</h3> : null
+          }
+
+        </div>
       </Link>
     </div>
   )

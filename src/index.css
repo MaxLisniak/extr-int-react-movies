@@ -28,21 +28,35 @@ nav{
   justify-content: space-between;
   align-items: center;
   background-color: #0db39e;
+  position: fixed;
+  width: calc(100% - 40px);
+  top: 0;
+  z-index: 100;
 }
 .movie-card{
   /* width: 200px; */
   /* height: 100px; */
-  background-color: #0db39e;
+  background-color: #efea5a;
   text-align: center;
   width: min-content;
   height: 100%;
   color: black;
   position: relative;
 }
+.movie-card-titles{
+  padding: 10px;
+}
+.movie-card h2{
+  font-size: 1.5em;
+}
+.movie-card h3{
+  font-size: 1.1em;
+}
 .movie-card a{
   color: black;
 }
 .movie-list{
+  margin-top: 60px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -52,6 +66,7 @@ nav{
   padding-top: 20px;
 }
 .movie-container{
+  margin-top: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -182,6 +197,7 @@ nav{
 }
 
 .fav-list{
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   gap: 10px;
