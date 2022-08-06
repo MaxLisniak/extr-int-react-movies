@@ -4,6 +4,7 @@ import StarAdd from "./star-add.svg";
 import { favouriteById, movieAddedToFavourite, movieRemoveFromFavourite } from "./moviesSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import "./ListItem.scss";
+import { NoPoster } from "./NoPoster";
 
 export const ListItem = (props: { movie: any }) => {
 
@@ -29,9 +30,12 @@ export const ListItem = (props: { movie: any }) => {
         alt="Add to favourite"
         onClick={handleFavouriteClick}
       />
-      {/* <img className="remove-from-fav-btn" onClick={handleRemove} src={StarRemove} alt="Add / Remove from favourite" /> */}
       <Link className="link" to={`/movie/${movie.id}`} style={{ textDecoration: "none" }}>
-        <img className="poster" src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="Movie Poster" />
+        {
+          movie.poster_path ?
+            <img className="poster" src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="Movie Poster" />
+            : <NoPoster width={100} height={150} fontSize={1} />
+        }
         <div>
           <h2>{movie.title}</h2>
           {

@@ -6,6 +6,7 @@ import configuredAxios from "../../axios/axios";
 import "./SingleMovie.scss"
 import StarRemove from "./star-remove.svg";
 import StarAdd from "./star-add.svg";
+import { NoPoster } from "./NoPoster";
 
 export const SingleMovie = () => {
 
@@ -54,7 +55,11 @@ export const SingleMovie = () => {
   return (
     <div className="movie-view">
       <div className="left-column">
-        <img src={`http://image.tmdb.org/t/p/w400${movie.poster_path}`} alt="Movie Poster" />
+        {
+          movie.poster_path ?
+            <img src={`http://image.tmdb.org/t/p/w400${movie.poster_path}`} alt="Movie Poster" />
+            : <NoPoster width={280} height={430} fontSize={2} />
+        }
 
         <div className="colorful-box">
           {
