@@ -1,0 +1,28 @@
+@import "colors";
+
+.fav-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $color6;
+
+  .remove-from-fav-btn {
+    width: 50px;
+    cursor: pointer;
+    padding: 20px;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    color: black;
+
+    .poster {
+      width: 100px;
+    }
+  }
+}

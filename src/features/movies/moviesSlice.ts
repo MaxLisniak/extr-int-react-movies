@@ -6,7 +6,7 @@ export interface MoviesState {
   status: 'idle' | 'loading';
   page: number;
   genres: any[];
-  favouriteMovies: any[]; 
+  favouriteMovies: any[];
 }
 
 const initialState: MoviesState = {
@@ -19,20 +19,20 @@ const initialState: MoviesState = {
 
 export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
-  async(args, thunkApi ) => {
-    const {getState} = thunkApi;
+  async (args, thunkApi) => {
+    const { getState } = thunkApi;
     const page = selectPage(getState())
     const response = await configuredAxios.get("discover/movie", {
-    params: {page: page}
-  })
+      params: { page: page }
+    })
     return response.data.results
   }
 )
 
 export const fetchGenres = createAsyncThunk(
   'movies/fetchGenres',
-  async() => {
-    const response = await configuredAxios.get("genre/movie/list") 
+  async () => {
+    const response = await configuredAxios.get("genre/movie/list")
     return response.data.genres;
   }
 )
@@ -43,47 +43,47 @@ export const moviesSlice = createSlice({
   reducers: {
     movieAddedToFavourite(state, action) {
       const { movieId } = action.payload
-      if (!state.favouriteMovies.find(movie => movie.id === movieId )){
+      if (!state.favouriteMovies.find(movie => movie.id === movieId)) {
         const movie = state.list.find(movie => movie.id === movieId)
         state.favouriteMovies.push(movie);
       }
     },
-    movieRemoveFromFavourite(state, action){
+    movieRemoveFromFavourite(state, action) {
       const { movieId } = action.payload
-      if (state.favouriteMovies.find(movie => movie.id === movieId )){
+      if (state.favouriteMovies.find(movie => movie.id === movieId)) {
         state.favouriteMovies = state.favouriteMovies.filter(movie => movie.id !== movieId);
       }
     }
   },
   extraReducers(builder) {
     builder
-    .addCase(fetchMovies.pending, (state, action) => {
-      state.status = 'loading';
-    })
-    .addCase(fetchMovies.fulfilled, (state, action) => {
-      state.status = 'idle';
-      state.list.push(...action.payload);
-      state.page += 1
-    });
+      .addCase(fetchMovies.pending, (state, action) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchMovies.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.list.push(...action.payload);
+        state.page += 1
+      });
     builder
-    .addCase(fetchGenres.fulfilled, (state, action) => {
-      state.genres = action.payload;
-    })
+      .addCase(fetchGenres.fulfilled, (state, action) => {
+        state.genres = action.payload;
+      })
   },
 })
 
 export default moviesSlice.reducer
 export const { movieAddedToFavourite, movieRemoveFromFavourite } = moviesSlice.actions;
 
-export const selectMovieById = (state:{ movies:MoviesState }, movieId:number) => {
+export const selectMovieById = (state: { movies: MoviesState }, movieId: number) => {
   return state.movies.list.find(movie => movie.id === movieId)
 }
 
-export const favouriteById = (state:{ movies:MoviesState }, movieId: number) => {
+export const favouriteById = (state: { movies: MoviesState }, movieId: number) => {
   const found = state.movies.favouriteMovies.find(movie => movie.id === movieId)
   if (found)
     return true
   return false
 }
 
-export const selectPage = (state:any) => state.movies.page;
+export const selectPage = (state: any) => state.movies.page;

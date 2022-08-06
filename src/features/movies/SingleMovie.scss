@@ -1,0 +1,113 @@
+@import "colors";
+
+.movie-view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 50px;
+
+  margin-top: 60px;
+  padding: 30px 20%;
+
+  min-height: 80vh;
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 280px;
+
+    .colorful-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .box-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+
+        padding: 10px;
+
+        font-weight: bold;
+      }
+
+      .tagline {
+        background-color: $color1;
+        color: black;
+      }
+
+      .release-date {
+        background-color: $color2;
+        color: black;
+      }
+
+      .runtime {
+        background-color: $color3;
+        color: black;
+      }
+
+      .budget {
+        background-color: $color4;
+        color: black;
+      }
+
+      .vote {
+        background-color: $color5;
+        color: black;
+      }
+
+      .IMDb {
+        background-color: $color6;
+
+        a {
+          color: black;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .horizontal-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      list-style: none;
+
+      padding: 0;
+
+      .list-item {
+        background-color: #0db39e;
+        color: aliceblue;
+        font-weight: bold;
+        font-size: 1em;
+        width: max-content;
+        padding: 3px;
+      }
+    }
+
+    .title {
+      font-size: 2.5em;
+    }
+
+    .overview {
+      font-size: 1.1em;
+    }
+
+    .read-more {
+      color: #0db39e;
+      font-weight: bold;
+    }
+  }
+}

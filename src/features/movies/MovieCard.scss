@@ -1,0 +1,41 @@
+@import "colors";
+
+.movie-card {
+  background-color: $color5;
+  color: black;
+  text-align: center;
+  width: min-content;
+  height: 100%;
+  position: relative;
+
+  .fav-btn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+
+    background-color: aliceblue;
+    border-radius: 0 0 0 20px;
+    opacity: 80%;
+
+    cursor: pointer;
+  }
+
+  .titles {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  a {
+    color: black;
+  }
+}

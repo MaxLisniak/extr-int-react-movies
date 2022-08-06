@@ -15,19 +15,19 @@ const root = createRoot(container);
 
 root.render(
   // <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />}>
-              <Route path='/' element={<MoviesList />} />
-              <Route path='/movie/:movieId' element={<SingleMovie />} />
-              <Route path='/favourite' element={<FavouritesList />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path='/' element={<MoviesList />} />
+            <Route path='/movie/:movieId' element={<SingleMovie />} />
+            <Route path='/favourite' element={<FavouritesList />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
   // </React.StrictMode>
 );
 
