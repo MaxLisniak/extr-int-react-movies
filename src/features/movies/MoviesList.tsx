@@ -1,9 +1,7 @@
 import { useAppSelector } from "../../app/hooks"
 import { useAppDispatch } from "../../app/hooks"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { fetchMovies } from "./moviesSlice"
-import { Link } from "react-router-dom"
-import { nanoid } from "@reduxjs/toolkit"
 import { MovieCard } from "./MovieCard"
 
 
