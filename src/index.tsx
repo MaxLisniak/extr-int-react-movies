@@ -8,6 +8,7 @@ import { SingleMovie } from './features/movies/SingleMovie';
 import { MoviesList } from './features/movies/MoviesList';
 import { persistor, store } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { FavouritesList } from './features/movies/FavouritesList';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -21,6 +22,7 @@ root.render(
             <Route path="/" element={<App />}>
               <Route path='/' element={<MoviesList />} />
               <Route path='/movie/:movieId' element={<SingleMovie />} />
+              <Route path='/favourite' element={<FavouritesList />} />
             </Route>
           </Routes>
         </BrowserRouter>

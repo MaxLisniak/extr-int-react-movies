@@ -14,9 +14,11 @@ function App() {
             <h1 className='brand'>Movies</h1>
           </Link>
         </div>
-        <div className="favourite-counter">
-          <p>Favourite: {favourites.length}</p>
-        </div>
+          <Link to="/favourite" style={{textDecoration: "none"}}>
+            <button className="favourite-counter">
+                Favourite: {favourites.length}
+            </button>
+          </Link>
       </nav>
       <Outlet />
     </>
