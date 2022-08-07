@@ -14,7 +14,8 @@ function App() {
     setSearchInput(e.target.value);
   }
   const navigate = useNavigate()
-  const onSearchSumbit = () => {
+  const onSearchSumbit = (e: any) => {
+    e.preventDefault();
     if (searchInput)
       navigate(`/search/${searchInput}`)
   }
@@ -27,7 +28,7 @@ function App() {
             <h1 className='brand'>Movies</h1>
           </Link>
         </div>
-        <div className='search'>
+        <form onSubmit={onSearchSumbit} className='search'>
           <input
             required
             type="search"
@@ -36,9 +37,9 @@ function App() {
             placeholder='search'
             autoComplete='off'
             onChange={onInputChange} />
-          <button onClick={onSearchSumbit}>🔎</button>
+          <button>🔎</button>
 
-        </div>
+        </form>
         <div className="fav-counter-container">
           <Link to="/favourite" style={{ textDecoration: "none" }}>
             <button className="fav-counter">

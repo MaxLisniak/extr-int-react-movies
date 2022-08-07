@@ -33,7 +33,7 @@ export const ListItem = (props: { movie: any }) => {
         {
           movie.poster_path ?
             <img className="poster" src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="Movie Poster" />
-            : <div className="no-poster-list-item" >
+            : <div className="no-poster-list-item poster" >
               <span>Without Poster</span>
             </div>
         }
