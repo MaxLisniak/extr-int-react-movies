@@ -43,7 +43,7 @@ export const Search = () => {
   console.log(searchResults);
 
   if (searchResults.length === 0) return (
-    <NotFound />
+    <NotFound msg="Searching..." />
   )
   return (
     <VerticalList items={searchResults} />
