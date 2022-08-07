@@ -27,6 +27,7 @@
     flex-direction: column;
     // margin-top: 160px;
     align-items: center;
+    padding: 0px 30px 30px 30px;
   }
 
   .left-column {
@@ -41,7 +42,7 @@
     }
 
     @include xs-down {
-      width: 90%;
+      width: 75%;
     }
 
     .no-poster {
