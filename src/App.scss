@@ -22,7 +22,9 @@ nav {
   height: min-content;
   width: calc(100% - 40px);
 
-  background-color: $color1;
+  background-color: #0db39dc6;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(7px);
 
   @include xs-down {
     flex-direction: column;
@@ -32,13 +34,19 @@ nav {
 
   .brand {
     color: aliceblue;
+    font-size: 1.6em;
+
+
+    @include xs-down {
+      font-size: 2em;
+    }
   }
+
 
   .search {
 
     display: flex;
     align-items: flex-start;
-
 
     #input {
       @include nav-element();
@@ -70,11 +78,13 @@ nav {
     }
   }
 
+
   .fav-counter-container {
     @include xs-down {
       width: 100%;
     }
   }
+
 
   .fav-counter {
     @include nav-element();
@@ -84,6 +94,17 @@ nav {
       width: 100%;
     }
   }
+
+}
+
+.first-element {
+  display: flex;
+  justify-content: space-between;
+
+  @include xs-down {
+    width: 100%;
+  }
+
 }
 
 .page-title {
