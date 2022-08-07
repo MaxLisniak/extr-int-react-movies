@@ -11,7 +11,7 @@ export const MoviesList = () => {
   const moviesCount = useAppSelector(state => state.movies.list.length)
 
   const scroll = () => {
-    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 100) {
       if (status === 'idle') {
         dispatch(fetchMovies());
       }
