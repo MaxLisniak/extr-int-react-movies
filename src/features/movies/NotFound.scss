@@ -1,3 +1,5 @@
+@import "screenSizes";
+
 .not-found {
   display: flex;
   align-items: center;
@@ -5,4 +7,5 @@
   font-size: 2em;
   text-align: center;
   height: 100vh;
+
 }

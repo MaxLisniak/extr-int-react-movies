@@ -1,16 +1,33 @@
 @import "colors";
+@import "screenSizes";
 
 .movie-view {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   gap: 50px;
 
-  margin-top: 60px;
-  padding: 30px 20%;
+  // margin-top: 60px;
+  padding: 20px 20%;
 
-  min-height: 80vh;
+  // min-height: 80vh;
+
+  @include m-down {
+    padding: 30px 50px;
+    align-items: flex-start;
+
+  }
+
+  @include s-down {
+    padding: 30px 20px;
+  }
+
+  @include xs-down {
+    flex-direction: column;
+    // margin-top: 160px;
+    align-items: center;
+  }
 
   .left-column {
     display: flex;
@@ -18,6 +35,39 @@
     justify-content: flex-start;
 
     width: 280px;
+
+    @include s-down {
+      width: 230px;
+    }
+
+    @include xs-down {
+      width: 90%;
+    }
+
+    .no-poster {
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 280px;
+      height: 420px;
+
+      @include s-down {
+        min-width: 230px;
+        height: 345px;
+      }
+
+      @include xs-down {
+        width: 100%;
+        min-width: unset;
+      }
+
+      span {
+        color: aliceblue;
+        text-align: center;
+        font-size: 1.5em;
+      }
+    }
 
     .colorful-box {
       display: flex;
@@ -81,9 +131,8 @@
     flex-direction: column;
     gap: 10px;
 
-    .fav-btn {
-      width: 40px;
-      margin-left: 20px;
+    @include xs-down {
+      width: 90%;
     }
 
     .horizontal-list {
@@ -119,4 +168,9 @@
       font-weight: bold;
     }
   }
+}
+
+.fav-btn {
+  width: 40px;
+  margin-left: 20px;
 }

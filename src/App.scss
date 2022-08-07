@@ -1,4 +1,5 @@
 @import "/src/features/movies/colors";
+@import "/src/features/movies/screenSizes";
 
 @mixin nav-element() {
   padding: 8px;
@@ -23,6 +24,12 @@ nav {
 
   background-color: $color1;
 
+  @include xs-down {
+    flex-direction: column;
+    gap: 10px;
+    // padding: 10px;
+  }
+
   .brand {
     color: aliceblue;
   }
@@ -32,12 +39,21 @@ nav {
     display: flex;
     align-items: flex-start;
 
+
     #input {
       @include nav-element();
       height: 40px;
       border-radius: 3px 0px 0px 3px;
       outline: none;
-      width: 20vw;
+      width: 25vw;
+
+      @include s-down {
+        width: 35vw;
+      }
+
+      @include xs-down {
+        width: 100%;
+      }
     }
 
     button {
@@ -48,19 +64,43 @@ nav {
       border-radius: 0px 3px 3px 0px;
 
     }
+
+    @include xs-down {
+      width: 100%
+    }
+  }
+
+  .fav-counter-container {
+    @include xs-down {
+      width: 100%;
+    }
   }
 
   .fav-counter {
     @include nav-element();
     height: 40px;
+
+    @include xs-down {
+      width: 100%;
+    }
   }
 }
 
 .page-title {
   text-align: center;
   margin: 100px 0px 40px 0px;
+  padding: 20px;
+
+
+  @include xs-down {
+    margin: 150px 0px 10px 0px;
+  }
 
   h1 {
     font-size: 3em;
+
+    @include xs-down {
+      font-size: 2.5em;
+    }
   }
 }

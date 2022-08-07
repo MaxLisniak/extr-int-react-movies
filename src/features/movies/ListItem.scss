@@ -1,4 +1,5 @@
 @import "colors";
+@import "screenSizes";
 
 .fav-list-item {
   display: flex;
@@ -7,10 +8,30 @@
   align-items: center;
   background-color: $color6;
 
+  @include s-down {
+    //   flex-direction: column;
+    //   align-items: flex-start;
+    // padding: 0 20px;
+    //   padding-bottom: 20px;
+  }
+
+  @include xs-down {
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
   .remove-from-fav-btn {
     width: 50px;
     cursor: pointer;
     padding: 20px;
+
+    @include s-down {
+      width: 40px;
+      align-self: center;
+    }
   }
 
   .link {
@@ -21,8 +42,66 @@
     gap: 20px;
     color: black;
 
+    .text {
+      padding: 20px 20px 20px 0;
+
+      @include xs-down {
+        padding: 20px;
+      }
+    }
+
+    // padding: 20px 20px 20px 0;
+
+    @include s-down {
+      padding: 0;
+    }
+
+    @include xs-down {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .poster {
-      width: 100px;
+      width: 150px;
+
+      @include s-down {
+        width: 120px;
+      }
+
+      @include s-down {
+        width: 180px;
+      }
+    }
+
+
+  }
+}
+
+.no-poster-list-item {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+  height: 225px;
+
+  @include s-down {
+    min-width: 200px;
+    height: 300px;
+  }
+
+  span {
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.5em;
+
+    @include s-down {
+      font-size: 2em;
+    }
+
+    @include s-down {
+      font-size: 1.5em;
     }
   }
 }

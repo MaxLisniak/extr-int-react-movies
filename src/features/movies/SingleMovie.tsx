@@ -6,7 +6,6 @@ import configuredAxios from "../../axios/axios";
 import "./SingleMovie.scss"
 import StarRemove from "./star-remove.svg";
 import StarAdd from "./star-add.svg";
-import { NoPoster } from "./NoPoster";
 
 export const SingleMovie = () => {
 
@@ -53,40 +52,8 @@ export const SingleMovie = () => {
   )
 
   return (
-    <div className="movie-view">
-      <div className="left-column">
-        {
-          movie.poster_path ?
-            <img src={`http://image.tmdb.org/t/p/w400${movie.poster_path}`} alt="Movie Poster" />
-            : <NoPoster width={280} height={430} fontSize={2} />
-        }
-
-        <div className="colorful-box">
-          {
-            movie.tagline.length > 0 ?
-              <div className="tagline box-item">
-                <span>"{movie?.tagline}"</span>
-              </div>
-              : null
-          }
-          <div className="release-date box-item">
-            <span>release date: {movie?.release_date}</span>
-          </div>
-          <div className="runtime box-item">
-            <span>runtime: {Math.floor(movie.runtime / 60)}h {movie.runtime - Math.floor(movie.runtime / 60) * 60}m</span>
-          </div>
-          <div className="budget box-item">
-            <b>budget: ${movie?.budget}</b>
-          </div>
-          <div className="vote box-item">
-            <b>{movie?.vote_average?.toFixed(1)} ⭐️ ({movie?.vote_count} votes)</b>
-          </div>
-          <div className="IMDb box-item">
-            <a href={`https://www.imdb.com/title/${movie.imdb_id}`}>IMDb</a>
-          </div>
-        </div>
-      </div>
-      <div className="right-column">
+    <>
+      <div className="page-title">
         <h1 className="title">{movie.title}
           <img
             className='fav-btn'
@@ -98,54 +65,93 @@ export const SingleMovie = () => {
           movie.title !== movie.original_title ?
             <h3>{movie.original_title}</h3> : null
         }
-        {movie.belongs_to_collection ?
-          <>
-            <p>Belongs to collection: </p>
-            <ul className="horizontal-list">
-              <li className="list-item">{movie.belongs_to_collection.name}</li>
-            </ul>
-          </> : null
-        }
-        {movie.genres.length > 0 ?
-          <>
-            <p>Genres: </p>
-            <ul className="horizontal-list">
-              {renderedGenres}
-            </ul>
-          </> : null
-        }
-        {movie.production_companies.length > 0 ?
-          <>
-            <p>Production companies: </p>
-            <ul className="horizontal-list">
-              {renderedProductionCompanies}
-            </ul>
-          </> : null
-        }
-        {movie.production_countries.length > 0 ?
-          <>
-            <p>Production countries: </p>
-            <ul className="horizontal-list">
-              {renderedPruductionCountries}
-            </ul>
-          </> : null
-        }
-
-        {movie.spoken_languages.length > 0 ?
-          <>
-            <p>Spoken languages: </p>
-            <ul className="horizontal-list">
-              {renderedSpokenLanguages}
-            </ul>
-          </> : null
-        }
-        <p><i className="overview">"{movie.overview}"</i></p>
-        {
-          movie.homepage !== "" ?
-            <p><a className="read-more" href={movie.homepage}>Read more on the official website</a></p>
-            : null
-        }
       </div>
-    </div>
+      <div className="movie-view">
+        <div className="left-column">
+          {
+            movie.poster_path ?
+              <img src={`http://image.tmdb.org/t/p/w400${movie.poster_path}`} alt="Movie Poster" />
+              : <div className="no-poster" >
+                <span>Without Poster</span>
+              </div>
+          }
+
+          <div className="colorful-box">
+            {
+              movie.tagline.length > 0 ?
+                <div className="tagline box-item">
+                  <span>"{movie?.tagline}"</span>
+                </div>
+                : null
+            }
+            <div className="release-date box-item">
+              <span>release date: {movie?.release_date}</span>
+            </div>
+            <div className="runtime box-item">
+              <span>runtime: {Math.floor(movie.runtime / 60)}h {movie.runtime - Math.floor(movie.runtime / 60) * 60}m</span>
+            </div>
+            <div className="budget box-item">
+              <b>budget: ${movie?.budget}</b>
+            </div>
+            <div className="vote box-item">
+              <b>{movie?.vote_average?.toFixed(1)} ⭐️ ({movie?.vote_count} votes)</b>
+            </div>
+            <div className="IMDb box-item">
+              <a href={`https://www.imdb.com/title/${movie.imdb_id}`}>IMDb</a>
+            </div>
+          </div>
+        </div>
+        <div className="right-column">
+
+          {movie.belongs_to_collection ?
+            <>
+              <p>Belongs to collection: </p>
+              <ul className="horizontal-list">
+                <li className="list-item">{movie.belongs_to_collection.name}</li>
+              </ul>
+            </> : null
+          }
+          {movie.genres.length > 0 ?
+            <>
+              <p>Genres: </p>
+              <ul className="horizontal-list">
+                {renderedGenres}
+              </ul>
+            </> : null
+          }
+          {movie.production_companies.length > 0 ?
+            <>
+              <p>Production companies: </p>
+              <ul className="horizontal-list">
+                {renderedProductionCompanies}
+              </ul>
+            </> : null
+          }
+          {movie.production_countries.length > 0 ?
+            <>
+              <p>Production countries: </p>
+              <ul className="horizontal-list">
+                {renderedPruductionCountries}
+              </ul>
+            </> : null
+          }
+
+          {movie.spoken_languages.length > 0 ?
+            <>
+              <p>Spoken languages: </p>
+              <ul className="horizontal-list">
+                {renderedSpokenLanguages}
+              </ul>
+            </> : null
+          }
+          <p><i className="overview">"{movie.overview}"</i></p>
+          {
+            movie.homepage !== "" ?
+              <p><a className="read-more" href={movie.homepage}>Read more on the official website</a></p>
+              : null
+          }
+        </div>
+      </div>
+    </>
   )
 }

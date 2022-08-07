@@ -1,3 +1,5 @@
+@import "screenSizes";
+
 .vertical-list {
   display: flex;
   flex-direction: column;
@@ -5,6 +7,18 @@
 
   list-style: none;
 
-  margin-top: 60px;
+  // margin-top: 60px;
   padding: 20px 20%;
+
+  @include m-down {
+    padding: 0 10%;
+  }
+
+  @include s-down {
+    padding: 0 45px;
+  }
+
+  @include xs-down {
+    padding: 0 45px;
+  }
 }

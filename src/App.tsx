@@ -39,11 +39,14 @@ function App() {
           <button onClick={onSearchSumbit}>🔎</button>
 
         </div>
-        <Link to="/favourite" style={{ textDecoration: "none" }}>
-          <button className="fav-counter">
-            Favourite: {favourites.length}
-          </button>
-        </Link>
+        <div className="fav-counter-container">
+          <Link to="/favourite" style={{ textDecoration: "none" }}>
+            <button className="fav-counter">
+              Favourite: {favourites.length}
+            </button>
+          </Link>
+
+        </div>
       </nav>
       <Outlet />
     </>

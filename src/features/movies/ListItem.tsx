@@ -4,7 +4,6 @@ import StarAdd from "./star-add.svg";
 import { favouriteById, movieAddedToFavourite, movieRemoveFromFavourite } from "./moviesSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import "./ListItem.scss";
-import { NoPoster } from "./NoPoster";
 
 export const ListItem = (props: { movie: any }) => {
 
@@ -34,15 +33,18 @@ export const ListItem = (props: { movie: any }) => {
         {
           movie.poster_path ?
             <img className="poster" src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="Movie Poster" />
-            : <NoPoster width={100} height={150} fontSize={1} />
+            : <div className="no-poster-list-item" >
+              <span>Without Poster</span>
+            </div>
         }
-        <div>
+        <div className="text">
           <h2>{movie.title}</h2>
           {
             movie.title !== movie.original_title ?
               <h3>{movie.original_title}</h3> : null
           }
-          <p>release date: {movie.release_date}</p>
+          <b>release date: {movie.release_date}</b>
+          <p>{movie.overview}</p>
         </div>
       </Link>
     </li>

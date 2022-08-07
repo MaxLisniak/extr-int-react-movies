@@ -28,7 +28,7 @@ export const MovieCard = ({ movie }: any) => {
         onClick={handleFavouriteClick}
       />
       <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>
-        <img src={`http://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="Movie Poster" />
+        <img className='poster' src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt="Movie Poster" />
         <div className="titles">
           <h2>{movie.title}</h2>
           {

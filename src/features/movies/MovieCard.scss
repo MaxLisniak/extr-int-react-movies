@@ -1,4 +1,5 @@
 @import "colors";
+@import "screenSizes";
 
 .movie-card {
   background-color: $color5;
@@ -7,6 +8,20 @@
   width: min-content;
   height: 100%;
   position: relative;
+
+  .poster {
+    width: 200px;
+  }
+
+  @include xs-down {
+    width: 300px;
+
+    .poster {
+      width: 100%;
+    }
+
+  }
+
 
   .fav-btn {
     width: 30px;
