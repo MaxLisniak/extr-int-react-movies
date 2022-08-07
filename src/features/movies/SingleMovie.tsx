@@ -102,7 +102,7 @@ export const SingleMovie = () => {
           <>
             <p>Belongs to collection: </p>
             <ul className="horizontal-list">
-              <li className="li">{movie.belongs_to_collection.name}</li>
+              <li className="list-item">{movie.belongs_to_collection.name}</li>
             </ul>
           </> : null
         }
