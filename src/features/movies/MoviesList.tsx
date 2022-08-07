@@ -39,8 +39,13 @@ export const MoviesList = () => {
     )
   })
   return (
-    <div className="movie-list">
-      {renderedMovies}
-    </div>
+    <>
+      <div className="page-title">
+        <h1>Discover movies</h1>
+      </div>
+      <div className="movie-list">
+        {renderedMovies}
+      </div>
+    </>
   )
 }

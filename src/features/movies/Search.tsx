@@ -46,6 +46,11 @@ export const Search = () => {
     <NotFound msg="Searching..." />
   )
   return (
-    <VerticalList items={searchResults} />
+    <>
+      <div className="page-title">
+        <h1>Results for "{searchQuery}"</h1>
+      </div>
+      <VerticalList items={searchResults} />
+    </>
   )
 }

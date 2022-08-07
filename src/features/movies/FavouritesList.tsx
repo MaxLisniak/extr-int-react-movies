@@ -10,6 +10,11 @@ export const FavouritesList = () => {
       <NotFound msg="You have no favourite movies" />
     )
   return (
-    <VerticalList items={favourites} />
+    <>
+      <div className="page-title">
+        <h1>Favourite movies</h1>
+      </div>
+      <VerticalList items={favourites} />
+    </>
   )
 }
