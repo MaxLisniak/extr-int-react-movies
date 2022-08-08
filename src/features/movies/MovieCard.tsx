@@ -2,7 +2,6 @@ import StarAdd from './star-add.svg'
 import StarRemove from './star-remove.svg'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { useState } from 'react'
 import { movieAddedToFavourite, movieRemoveFromFavourite } from './moviesSlice'
 import { favouriteById } from './moviesSlice'
 import "./MovieCard.scss";
@@ -35,7 +34,6 @@ export const MovieCard = ({ movie }: any) => {
             movie.title !== movie.original_title ?
               <h3>{movie.original_title}</h3> : null
           }
-
         </div>
       </Link>
     </div>
